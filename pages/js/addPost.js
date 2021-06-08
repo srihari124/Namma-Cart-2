@@ -25,11 +25,11 @@ function adSubmit() {
     var name = document.querySelector("#name").value;
     var mobileNumber = document.querySelector("#mobileNumber").value;
     var picure1 = document.querySelector("#picure1").files[0];
-    var picure2 = document.querySelector("#picure2").files[0];
+    /*var picure2 = document.querySelector("#picure2").files[0];
     var picure3 = document.querySelector("#picure3").files[0];
-    var picure4 = document.querySelector("#picure4").files[0];
+    var picure4 = document.querySelector("#picure4").files[0];*/
 
-    if (adTitle !== "" && adTitle !== " " && category !== "null" && adDesc !== "" && adDesc !== " " && location !== "" && location !== " " && price !== "" && price !== " " && name !== "" && name !== " " && mobileNumber !== "" && mobileNumber !== " " && picure1 !== undefined && picure2 !== undefined && picure3 !== undefined && picure4 !== undefined) {
+    if (adTitle !== "" && adTitle !== " " && category !== "null" && adDesc !== "" && adDesc !== " " && location !== "" && location !== " " && price !== "" && price !== " " && name !== "" && name !== " " && mobileNumber !== "" && mobileNumber !== " " && picure1 !== undefined ){/*&& picure2 !== undefined && picure3 !== undefined && picure4 !== undefined*/ 
         JumboArea.classList.add("running");
         const ref = firebase.storage().ref();
         const imgUrls = [];
@@ -38,7 +38,7 @@ function adSubmit() {
             .then((url) => {
                 console.log(url);
                 imgUrls.push(url);
-                ref.child("UserAds/").child(uid).child(picure2.name).put(picure2)
+                /*ref.child("UserAds/").child(uid).child(picure2.name).put(picure2)
                     .then(snapshot => snapshot.ref.getDownloadURL())
                     .then((url) => {
                         console.log(url);
@@ -53,6 +53,7 @@ function adSubmit() {
                                     .then((url) => {
                                         console.log(url);
                                         imgUrls.push(url);
+                                */
                                         console.log('Images Array:', imgUrls);
 
                                         var adPostData = {
@@ -95,9 +96,9 @@ function adSubmit() {
                                                     }
                                                 });
                                             })
-                                    })
-                            })
-                    })
+                                    
+                            
+                    
             })
 
     } else {
